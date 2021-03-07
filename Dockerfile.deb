@@ -14,4 +14,4 @@ EXPOSE 5111
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 CMD nc -z localhost 5111
 
-CMD bash /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
