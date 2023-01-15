@@ -31,7 +31,7 @@ USER bluezuser
 # Install application
 ADD https://raw.githubusercontent.com/fhem/fhem-mirror/master/fhem/contrib/PRESENCE/presenced /presenced
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /*.sh /presenced \
+RUN sudo chmod +x /*.sh /presenced \
     && sudo chgrp -cR dialout /presenced
 
 EXPOSE 5111
