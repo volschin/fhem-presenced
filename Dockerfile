@@ -32,7 +32,7 @@ USER bluezuser
 ADD https://raw.githubusercontent.com/fhem/fhem-mirror/master/fhem/contrib/PRESENCE/presenced /presenced
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /*.sh /presenced \
-    && chgrp -cR dialout /presenced
+    && sudo chgrp -cR dialout /presenced
 
 EXPOSE 5111
 
