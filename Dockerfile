@@ -21,18 +21,18 @@ RUN apt-get update && apt-get upgrade -qqy \
   && apt-get autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install application
-ADD https://raw.githubusercontent.com/fhem/fhem-mirror/master/fhem/contrib/PRESENCE/presenced /presenced
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /*.sh /presenced \
-    && chgrp -cR dialout /presenced
-
 # setup bluetooth permissions
 COPY ./bluezuser.conf /etc/dbus-1/system.d/
 RUN useradd -m bluezuser \
  && adduser bluezuser sudo \
  && passwd -d bluezuser
 USER bluezuser
+
+# Install application
+ADD https://raw.githubusercontent.com/fhem/fhem-mirror/master/fhem/contrib/PRESENCE/presenced /presenced
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /*.sh /presenced \
+    && chgrp -cR dialout /presenced
 
 EXPOSE 5111
 
