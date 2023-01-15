@@ -4,11 +4,24 @@ LABEL maintainer="Veit Olschinski <volschin@gmail.com>"
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
+# install bluez related packages
+RUN apt-get update && apt-get install -y \
+    bluez \
+    dbus \
+    sudo
+
 ADD https://raw.githubusercontent.com/fhem/fhem-mirror/master/fhem/contrib/PRESENCE/presenced /presenced
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /*.sh /presenced \
     && chgrp -cR dialout /presenced
+
+# setup bluetooth permissions
+COPY ./bluezuser.conf /etc/dbus-1/system.d/
+RUN useradd -m bluezuser \
+ && adduser bluezuser sudo \
+ && passwd -d bluezuser
+USER bluezuser
 
 EXPOSE 5111
 
