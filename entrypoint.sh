@@ -8,7 +8,7 @@ msg="Waiting for services to start..."
 time=0
 echo -n $msg
 while [[ "$(pidof start-stop-daemon)" != "" ]]; do
-    sleep 100
+    sleep 10
     time=$((time + 1))
     echo -en "\r$msg $time s"
 done
