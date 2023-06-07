@@ -56,7 +56,7 @@ jobs:
           
       # Necessary for Multi-Arch images
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2.1.0
+        uses: docker/setup-qemu-action@v2.2.0
         
       # Get buildx ready
       - name: Set up Docker Buildx
