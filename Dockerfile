@@ -15,7 +15,7 @@ RUN apt-get update && apt-get upgrade -qqy \
   sudo \
   gawk \
   libnet-server-perl \
-  netcat \
+  netcat-openbsd \
   perl \
   socat \
   && apt-get autoremove && apt-get clean \
