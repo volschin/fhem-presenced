@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 LABEL maintainer="Veit Olschinski <volschin@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
