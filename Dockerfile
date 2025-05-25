@@ -1,8 +1,8 @@
 FROM debian:12.11-slim
 LABEL maintainer="Veit Olschinski <volschin@gmail.com>"
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TERM xterm
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm
 
 # Install base environment
 RUN apt-get update && apt-get upgrade -qqy \
