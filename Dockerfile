@@ -1,4 +1,4 @@
-FROM debian:13.1-slim
+FROM debian:13.2-slim
 LABEL maintainer="Veit Olschinski <volschin@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
